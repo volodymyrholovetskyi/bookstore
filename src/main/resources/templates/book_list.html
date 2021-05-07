@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+
+<!--<div class="container">-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-nav">
+            <a href="/offers" class="nav-link nav-item">Return</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Numer zamówienia</th>
+        <th scope="col">Nazwa książki</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Wydania</th>
+        <th scope="col">Ilość stron</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book: ${allBook}">
+        <td th:text="${book.idBook}"></td>
+        <td th:text="${book.bookTitle}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.edition}"></td>
+        <td th:text="${book.numberOfPages}"></td>
+<!--        <td><a th:href="${'/order/details?id='+customer.idCustomer}">Order details</a></td>-->
+<!--        <td><a th:href="${'/order/delete/'+customer.idCustomer}">Delete</a></td>-->
+    </tr>
+    </tbody>
+</table>
+</div>
+    <!--</div>-->
+</html>

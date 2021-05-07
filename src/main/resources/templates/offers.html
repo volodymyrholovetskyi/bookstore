@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Offers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-nav">
+            <a href="home/page" class="nav-link nav-item">Home</a>
+            <a href="#" class="nav-link nav-item active text-warning">Offers</a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+<ul class="breadcrumb text-center">
+    <li class="breadcrumb-item"><a href="new/order">Order</a></li>
+    <li class="breadcrumb-item"><a href="order/list">Order list</a></li>
+    <li class="breadcrumb-item"><a href="book/list">Product in stock</a></li>
+    <li class="breadcrumb-item"><a href="account">Account</a></li>
+    <li class="breadcrumb-item"><a href="#">About us</a></li>
+</ul>
+</div>
+<div>
+        <img th:src="@{${'/images/image5.png'}}" alt="image">
+    </div>
+
+
+</html>

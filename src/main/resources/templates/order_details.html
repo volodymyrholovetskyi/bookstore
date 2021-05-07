@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Details of the order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+
+<body>
+<!--<div class="container">-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-nav">
+            <a href="/offers" class="nav-link nav-item"Rreturn</a>
+        </div>
+    </div>
+</nav>
+
+<!--<div class="jumbotron jumbotron-fluid bg-success text-white text-center">-->
+<div class="jumbotron jumbotron-fluid bg-light text-white text-center">
+    <div class="container text-dark">
+        <h1>Order details</h1>
+    </div>
+</div>
+
+<div class="container">
+    <p th:text="${customer.firstName}"</p>
+    <p th:text="${customer.lastName}"></p>
+    <p th:text="${customer.city}"></p>
+    <p th:text="${customer.email}"></p>
+</div>
+</body>
+</html>

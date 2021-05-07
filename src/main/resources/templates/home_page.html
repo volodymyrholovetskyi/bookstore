@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bookstore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"  th:href="@{/static/images/image.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.2/css/font-awesome-jsf.css}"/>
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/style/ikona1.png}"/>-->
+    <!--    <h:outputStylesheet library="webjars" name="font-awesome/5.15.2/css/all-jsf.css" />-->
+    <h:outputStylesheet library="webjars" name="font-awesome/5.15.2/css/font-awesome-jsf.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+
+
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/font-awesome/5.15.2/font-awesome-jsf.css}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+<!--        <img class="navbar-brand" th:src="@{${'/images/image3.png'}}" alt="image">-->
+        <div class="navbar-nav">
+            <a href="#" class="nav-link nav-item active text-warning">Home</a>
+            <a href="#" class="nav-link nav-item ">Opinions</a>
+            <a href="#" class="nav-link nav-item ">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<div class="top jumbotron text-white text-center">
+<!--<div class=" top jumbotron jumbotron-fluid bg-warning  text-white text-center">-->
+    <div class="container">
+        <h1 class="text-uppercase ">Odkryj <span class="text-warning">nowe możliwości</span> wypożyczania książek</h1>
+<!--        <a href="/offers" <button class="btn btn-warning text-white">Więcej</button></a>-->
+        <a href="/offers" class="btn btn-warning text-white" role="button">Więcej</a>
+    </div>
+</div>
+
+<section class="introduction">
+    <h2 class="text-center text-uppercase">Wypożyczaj od nas</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <div class="introduction-item text-center">
+                    <div>
+                    <img th:src="@{${'/images/image1.png'}}" alt="image">
+                    </div>
+                    <h3>Innowacja</h3>
+                    <p>Nie musisz wydawać sporo kasy na książki, skoro możesz wypożyczyć je u nas. </p>
+
+                </div>
+
+            </div>
+            <div class="col-md">
+                <div class="introduction-item text-center">
+                    <div>
+                        <img th:src="@{${'/images/image2.jpg'}}" alt="image">
+                    </div>
+                    <h4>Oszczędzanie przestrzeni</h4>
+                    <p>Lubisz czytac książki, ale nie masz miejsca, żeby je wszystkie umieścić na półkach? Nie martw sie, wypożyczaj książki u nas, a będzisz miał dużo wolnej przestrzeni w swoim mieszkaniu!</p>
+
+                </div>
+        </div>
+
+    </div>
+
+</section>
+<br>
+<br>
+<br>
+
+</body>
+</html>
