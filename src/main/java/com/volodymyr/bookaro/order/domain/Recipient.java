@@ -1,16 +1,27 @@
 package com.volodymyr.bookaro.order.domain;
 
+import com.volodymyr.bookaro.jpa.BaseEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Value
+import javax.persistence.Entity;
+
+@Getter
+@Setter
 @Builder
-public class Recipient {
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Recipient extends BaseEntity {
 
-    String name;
-    String phone;
-    String street;
-    String city;
-    String zipCod;
-    String email;
+    private String name;
+    private String phone;
+    private String street;
+    private String city;
+    private String zipCod;
+    private String email;
+
 }

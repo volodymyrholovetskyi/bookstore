@@ -1,11 +1,21 @@
 package com.volodymyr.bookaro.order.domain;
 
-import com.volodymyr.bookaro.catalog.domain.Book;
-import lombok.Value;
+import com.volodymyr.bookaro.jpa.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Value
-public class OrderItem {
+import javax.persistence.Entity;
 
-    Book book;
-    int quantity;
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderItem extends BaseEntity {
+
+    private Long bookId;
+    private int quantity;
+
 }
