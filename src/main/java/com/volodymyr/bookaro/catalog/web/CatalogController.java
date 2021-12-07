@@ -10,6 +10,7 @@ import lombok.Data;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URI;
@@ -69,12 +71,14 @@ public class CatalogController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @Secured({"ROLE_ADMIN"})
     @PostMapping
     ResponseEntity<Void> addBook(@Validated(CreateValidation.class) @RequestBody RestBookCommand command) {
         Book book = catalog.addBook(command.toCreateCommand());
         return ResponseEntity.created(createdBookUri(book)).build();
     }
 
+    @Secured({"ROLE_ADMIN"})
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateBook(@PathVariable Long id, @Validated(UpdateValidation.class) @RequestBody RestBookCommand command) {
@@ -85,6 +89,7 @@ public class CatalogController {
         }
     }
 
+    @Secured({"ROLE_ADMIN"})
     @PutMapping(value = "/{id}/cover", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void addBookCover(@PathVariable Long id, @RequestParam("file") MultipartFile file) throws IOException {
@@ -94,17 +99,18 @@ public class CatalogController {
                     id, file.getBytes(), file.getContentType(), file.getOriginalFilename()
             ));
         } catch (Exception ex) {
-            System.out.println("EXCEPTION!");
             ex.getMessage();
         }
     }
 
+    @Secured({"ROLE_ADMIN"})
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) {
         catalog.removeById(id);
     }
 
+    @Secured({"ROLE_ADMIN"})
     @DeleteMapping("/{id}/cover")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeBookCover(@PathVariable Long id) {
@@ -133,12 +139,16 @@ public class CatalogController {
         @NotNull(groups = {CreateValidation.class})
         private Integer year;
 
+        @NotNull
+        @PositiveOrZero
+        private Long available;
+
         @NotNull(groups = {CreateValidation.class})
         @DecimalMin(value = "0.00", groups = {CreateValidation.class, UpdateValidation.class})
         private BigDecimal price;
 
         CreateBookCommand toCreateCommand() {
-            return new CreateBookCommand(title, authors, year, price);
+            return new CreateBookCommand(title, authors, year, price, available);
         }
 
         UpdateBookCommand toUpdateCommand(Long id) {

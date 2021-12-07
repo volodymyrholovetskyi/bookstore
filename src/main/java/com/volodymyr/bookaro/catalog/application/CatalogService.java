@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class CatalogService implements CatalogUseCase {
+class CatalogService implements CatalogUseCase {
 
     private final BookJpaRepository repository;
     private final AuthorJpaRepository authorRepository;
@@ -28,7 +28,7 @@ public class CatalogService implements CatalogUseCase {
 
     @Override
     public List<Book> findAll() {
-        return repository.findAll();
+        return repository.findAllEager();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class CatalogService implements CatalogUseCase {
     }
 
     private Book toBook(CreateBookCommand command) {
-        Book book = new Book(command.getTitle(), command.getYear(), command.getPrice());
+        Book book = new Book(command.getTitle(), command.getYear(), command.getPrice(), command.getAvailable());
         Set<Author> authors = fetchAuthorsByIds(command.getAuthors());
         updateBook(book, authors);
         return book;
@@ -108,14 +108,14 @@ public class CatalogService implements CatalogUseCase {
     }
 
     @Override
+    @Transactional
     public UpdateBookResponse updateBook(UpdateBookCommand command) {
         return repository.
                 findById(command.getId())
                 .map(book -> {
-                    Book updateBook = updateFields(command, book);
-                    repository.save(updateBook);
+                    updateFields(command, book);
                     return UpdateBookResponse.SUCCESS;
-                })
+                  })
                 .orElseGet(() -> new UpdateBookResponse(false,
                         Collections.singletonList("Product not fond with id: " + command.getId())));
     }

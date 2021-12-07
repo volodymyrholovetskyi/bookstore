@@ -11,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
@@ -29,12 +30,14 @@ import java.util.Set;
 @EntityListeners(AuditingEntityListener.class)
 public class Book extends BaseEntity {
 
+    @Column(unique = true)
     private String title;
     private Integer year;
     private BigDecimal price;
     private Long coverId;
+    private Long available;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
     @JoinTable
     @JsonIgnoreProperties("books")
     private Set<Author> authors = new HashSet<>();
@@ -45,10 +48,11 @@ public class Book extends BaseEntity {
     @LastModifiedDate
     private LocalDateTime updateAt;
 
-    public Book(String title, Integer year, BigDecimal price) {
+    public Book(String title, Integer year, BigDecimal price, Long available) {
         this.title = title;
         this.year = year;
         this.price = price;
+        this.available = available;
     }
 
     public void addAuthor(Author author) {

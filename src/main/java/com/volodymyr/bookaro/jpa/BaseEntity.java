@@ -23,5 +23,5 @@ public abstract class BaseEntity {
     private String uuid = UUID.randomUUID().toString();
 
     @Version
-    private String version;
+    private long version;
 }

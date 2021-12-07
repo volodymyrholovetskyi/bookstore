@@ -1,16 +1,37 @@
 ###
-POST http://localhost:8080/orders
+POST http://localhost:80/admin/data
+
+###
+PUT http://localhost:80/orders/5/status
+Content-Type: application/json
+
+{
+"status": "NEW"
+}
+
+### Catalog
+GET http://localhost:80/catalog/96
+
+### CoverId
+GET http://localhost:80/uploads/90/file
+
+
+###
+GET http://localhost:80/uploads/97
+
+###
+POST http://localhost:80/orders
 Content-Type: application/json
 
 {
   "items": [
     {
-      "bookId": 0,
-      "quantity": 2
+      "bookId": 89,
+      "quantity": 1
     },
     {
-      "bookId": 1,
-      "quantity": 1
+      "bookId": 12,
+      "quantity": 2
     }
   ],
   "recipient": {
@@ -24,4 +45,10 @@ Content-Type: application/json
 }
 
 ###
+GET http://localhost:80/orders/9
+
+###
 GET http://localhost:80/orders
+
+###
+POST http://localhost:80/admin/initialization
