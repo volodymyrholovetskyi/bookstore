@@ -1,3 +1,3 @@
-# Bookaro H1
-# Online bookstore application H2
+# Bookaro 
+Online bookstore application 
 
