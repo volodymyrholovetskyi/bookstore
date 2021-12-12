@@ -126,7 +126,7 @@ public class CatalogInitializerServices implements CatalogInitializerUseCase {
                 .city("Kraków")
                 .street("Al. Sikorskiego 1")
                 .zipCod("80-114")
-                .email("mail@mail.com")
+                .email("marek@example.org")
                 .build();
 
         ManipulateOrderUseCase.PlaceOrderCommand command = ManipulateOrderUseCase.PlaceOrderCommand
