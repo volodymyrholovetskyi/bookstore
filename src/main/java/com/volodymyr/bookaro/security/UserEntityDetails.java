@@ -1,6 +1,6 @@
 package com.volodymyr.bookaro.security;
 
-import com.volodymyr.bookaro.user.domain.UserEntity;
+import com.volodymyr.bookaro.users.domain.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

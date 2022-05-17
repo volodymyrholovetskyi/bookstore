@@ -1,6 +1,6 @@
 package com.volodymyr.bookaro.security;
 
-import com.volodymyr.bookaro.user.db.UserEntityRepository;
+import com.volodymyr.bookaro.users.db.UserEntityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

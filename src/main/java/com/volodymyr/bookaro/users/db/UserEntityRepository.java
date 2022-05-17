@@ -1,6 +1,6 @@
-package com.volodymyr.bookaro.user.db;
+package com.volodymyr.bookaro.users.db;
 
-import com.volodymyr.bookaro.user.domain.UserEntity;
+import com.volodymyr.bookaro.users.domain.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package com.volodymyr.bookaro.users.application.port;
 
 import com.volodymyr.bookaro.commons.Either;
-import com.volodymyr.bookaro.user.domain.UserEntity;
+import com.volodymyr.bookaro.users.domain.UserEntity;
 
 public interface UserRegistrationUseCase {
 

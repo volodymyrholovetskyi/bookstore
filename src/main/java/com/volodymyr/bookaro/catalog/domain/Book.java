@@ -14,7 +14,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.math.BigDecimal;
@@ -38,7 +37,6 @@ public class Book extends BaseEntity {
     private Long available;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
-    @JoinTable
     @JsonIgnoreProperties("books")
     private Set<Author> authors = new HashSet<>();
 

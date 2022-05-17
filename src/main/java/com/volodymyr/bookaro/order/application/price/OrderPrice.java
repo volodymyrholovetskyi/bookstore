@@ -1,5 +1,6 @@
 package com.volodymyr.bookaro.order.application.price;
 
+import com.volodymyr.bookaro.order.application.RichOrder;
 import lombok.Value;
 
 import java.math.BigDecimal;

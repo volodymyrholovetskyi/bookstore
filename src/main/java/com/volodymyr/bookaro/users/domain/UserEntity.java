@@ -1,4 +1,4 @@
-package com.volodymyr.bookaro.user.domain;
+package com.volodymyr.bookaro.users.domain;
 
 import com.volodymyr.bookaro.jpa.BaseEntity;
 import lombok.Getter;

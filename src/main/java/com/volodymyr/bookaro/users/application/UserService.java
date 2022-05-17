@@ -1,7 +1,7 @@
 package com.volodymyr.bookaro.users.application;
 
-import com.volodymyr.bookaro.user.db.UserEntityRepository;
-import com.volodymyr.bookaro.user.domain.UserEntity;
+import com.volodymyr.bookaro.users.db.UserEntityRepository;
+import com.volodymyr.bookaro.users.domain.UserEntity;
 import com.volodymyr.bookaro.users.application.port.UserRegistrationUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

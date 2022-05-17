@@ -1,6 +1,6 @@
 package com.volodymyr.bookaro.security;
 
-import com.volodymyr.bookaro.user.db.UserEntityRepository;
+import com.volodymyr.bookaro.users.db.UserEntityRepository;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -18,13 +18,15 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @AllArgsConstructor
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @EnableConfigurationProperties(AdminConfig.class)
 @Profile("!test")
-public class BookaroSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class BookaroSecurityConfiguration extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     private final UserEntityRepository userEntityRepository;
     private final AdminConfig config;
@@ -32,6 +34,13 @@ public class BookaroSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     User systemUser() {
         return config.adminUser();
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedMethods("*")
+                .allowedOrigins("*");
     }
 
     @Override
