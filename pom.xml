@@ -14,12 +14,11 @@
     <name>Bookaro Online Stroe</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <lombok.version>1.18.12</lombok.version>
         <hibernate.validator.version>6.1.5.Final</hibernate.validator.version>
         <commons.lang.version>3.11</commons.lang.version>
         <swagger.version>2.9.2</swagger.version>
-        <java.version>11</java.version>
         <opencsv.version>5.3</opencsv.version>
         <postgresql.version>42.3.1</postgresql.version>
         <flyway.vesrsion>6.5.7</flyway.vesrsion>

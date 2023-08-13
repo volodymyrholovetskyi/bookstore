@@ -65,7 +65,7 @@ public interface CatalogUseCase {
     }
 
     @Value
-    class UpdateBookResponse {
+     class UpdateBookResponse {
         public static UpdateBookResponse SUCCESS = new UpdateBookResponse(true, emptyList());
 
         boolean success;
